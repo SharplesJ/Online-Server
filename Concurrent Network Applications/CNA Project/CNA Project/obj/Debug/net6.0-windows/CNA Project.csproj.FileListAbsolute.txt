@@ -1,0 +1,21 @@
+C:\Users\s012349l\OneDrive - Staffordshire University\L5 Semester 1 Code\Concurrent Network Applications\CNA Project\CNA Project\obj\Debug\net6.0-windows\CNA Project.csproj.AssemblyReference.cache
+C:\Users\s012349l\OneDrive - Staffordshire University\L5 Semester 1 Code\Concurrent Network Applications\CNA Project\CNA Project\obj\Debug\net6.0-windows\App.g.cs
+C:\Users\s012349l\OneDrive - Staffordshire University\L5 Semester 1 Code\Concurrent Network Applications\CNA Project\CNA Project\obj\Debug\net6.0-windows\CNA Project_MarkupCompile.cache
+C:\Users\s012349l\OneDrive - Staffordshire University\L5 Semester 1 Code\Concurrent Network Applications\CNA Project\CNA Project\obj\Debug\net6.0-windows\MainWindow.g.cs
+C:\Users\s012349l\OneDrive - Staffordshire University\L5 Semester 1 Code\Concurrent Network Applications\CNA Project\CNA Project\obj\Debug\net6.0-windows\CNA Project_MarkupCompile.lref
+C:\Users\s012349l\OneDrive - Staffordshire University\L5 Semester 1 Code\Concurrent Network Applications\CNA Project\CNA Project\bin\Debug\net6.0-windows\CNA Project.exe
+C:\Users\s012349l\OneDrive - Staffordshire University\L5 Semester 1 Code\Concurrent Network Applications\CNA Project\CNA Project\bin\Debug\net6.0-windows\CNA Project.deps.json
+C:\Users\s012349l\OneDrive - Staffordshire University\L5 Semester 1 Code\Concurrent Network Applications\CNA Project\CNA Project\bin\Debug\net6.0-windows\CNA Project.runtimeconfig.json
+C:\Users\s012349l\OneDrive - Staffordshire University\L5 Semester 1 Code\Concurrent Network Applications\CNA Project\CNA Project\bin\Debug\net6.0-windows\CNA Project.dll
+C:\Users\s012349l\OneDrive - Staffordshire University\L5 Semester 1 Code\Concurrent Network Applications\CNA Project\CNA Project\bin\Debug\net6.0-windows\CNA Project.pdb
+C:\Users\s012349l\OneDrive - Staffordshire University\L5 Semester 1 Code\Concurrent Network Applications\CNA Project\CNA Project\obj\Debug\net6.0-windows\MainWindow.baml
+C:\Users\s012349l\OneDrive - Staffordshire University\L5 Semester 1 Code\Concurrent Network Applications\CNA Project\CNA Project\obj\Debug\net6.0-windows\CNA Project.g.resources
+C:\Users\s012349l\OneDrive - Staffordshire University\L5 Semester 1 Code\Concurrent Network Applications\CNA Project\CNA Project\obj\Debug\net6.0-windows\CNA Project.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\s012349l\OneDrive - Staffordshire University\L5 Semester 1 Code\Concurrent Network Applications\CNA Project\CNA Project\obj\Debug\net6.0-windows\CNA Project.AssemblyInfoInputs.cache
+C:\Users\s012349l\OneDrive - Staffordshire University\L5 Semester 1 Code\Concurrent Network Applications\CNA Project\CNA Project\obj\Debug\net6.0-windows\CNA Project.AssemblyInfo.cs
+C:\Users\s012349l\OneDrive - Staffordshire University\L5 Semester 1 Code\Concurrent Network Applications\CNA Project\CNA Project\obj\Debug\net6.0-windows\CNA Project.csproj.CoreCompileInputs.cache
+C:\Users\s012349l\OneDrive - Staffordshire University\L5 Semester 1 Code\Concurrent Network Applications\CNA Project\CNA Project\obj\Debug\net6.0-windows\CNA Project.dll
+C:\Users\s012349l\OneDrive - Staffordshire University\L5 Semester 1 Code\Concurrent Network Applications\CNA Project\CNA Project\obj\Debug\net6.0-windows\refint\CNA Project.dll
+C:\Users\s012349l\OneDrive - Staffordshire University\L5 Semester 1 Code\Concurrent Network Applications\CNA Project\CNA Project\obj\Debug\net6.0-windows\CNA Project.pdb
+C:\Users\s012349l\OneDrive - Staffordshire University\L5 Semester 1 Code\Concurrent Network Applications\CNA Project\CNA Project\obj\Debug\net6.0-windows\CNA Project.genruntimeconfig.cache
+C:\Users\s012349l\OneDrive - Staffordshire University\L5 Semester 1 Code\Concurrent Network Applications\CNA Project\CNA Project\obj\Debug\net6.0-windows\ref\CNA Project.dll

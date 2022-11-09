@@ -1,0 +1,46 @@
+﻿<Window x:Class="CNA_Project.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CNA_Project"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Rectangle HorizontalAlignment="Center" Height="434" VerticalAlignment="Center" Width="800">
+            <Rectangle.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="#FFDAFF00" Offset="1"/>
+                    <GradientStop Color="#68CFFC" Offset="0"/>
+                    <GradientStop Color="#FF84C31B" Offset="0.51"/>
+                </LinearGradientBrush>
+            </Rectangle.Fill>
+            <Rectangle.Stroke>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Rectangle.Stroke>
+        </Rectangle>
+        <TextBlock Margin="26,0,709,378" TextWrapping="Wrap" Text="Server IP:" VerticalAlignment="Bottom" Height="20"/>
+        <TextBox HorizontalAlignment="Left" Margin="96,36,0,0" TextWrapping="Wrap" Text="127.0.0.1" VerticalAlignment="Top" Width="126" Height="20"/>
+        <TextBlock HorizontalAlignment="Left" Margin="237,36,0,0" TextWrapping="Wrap" Text="Port:" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="20" Margin="274,36,0,0" TextWrapping="Wrap" Text="3090" VerticalAlignment="Top" Width="55" TextChanged="TextBox_TextChanged"/>
+        <TextBox x:Name="chatBox" HorizontalAlignment="Left" Height="288" Margin="26,84,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="585"/>
+        <ScrollBar HorizontalAlignment="Left" Margin="594,84,0,0" VerticalAlignment="Top" RenderTransformOrigin="-2.32,-2.054" Height="288"/>
+        <TextBlock HorizontalAlignment="Left" Margin="26,396,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="en-gb" Text="Message"/></TextBlock>
+        <TextBox x:Name="messageText" HorizontalAlignment="Left" Height="28" Margin="78,396,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="533" TextChanged="TextBox_TextChanged_1"/>
+        <Button Content="Send" HorizontalAlignment="Left" Margin="636,396,0,0" VerticalAlignment="Top" Height="28" Width="154" Click="Button_Click"/>
+        <TextBox HorizontalAlignment="Left" Height="196" Margin="636,176,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="154"/>
+        <TextBlock HorizontalAlignment="Left" Height="24" Margin="636,152,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="154"><Run Language="en-gb" Text="Messages From:"/></TextBlock>
+        <CheckBox Content="Enable Server" HorizontalAlignment="Left" Margin="636,97,0,0" VerticalAlignment="Top" Height="16" Width="147" Checked="CheckBox_Checked"/>
+        <CheckBox Content="Use Encryption" HorizontalAlignment="Left" Height="21" Margin="636,118,0,0" VerticalAlignment="Top" Width="130"/>
+        <TextBlock HorizontalAlignment="Left" Margin="520,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="91"><Run Language="en-gb" Text="Local Name"/></TextBlock>
+        <TextBox x:Name="localName" HorizontalAlignment="Left" Height="18" Margin="616,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167"/>
+
+    </Grid>
+</Window>
