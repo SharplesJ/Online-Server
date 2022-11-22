@@ -6,12 +6,15 @@ using System.Threading.Tasks;
 using System.Net.Sockets;
 using System.Net;
 using System.IO;
+using System.Collections.Concurrent;
+using System.Threading;
 
 namespace SeverProj
 {
-    internal class Server
+    public class Server
     {
         private TcpListener m_tcpListener;
+        ConcurrentDictionary<int, ConnectedClient> Clients;
         public Server(string ipAddress, int port)
         {
             IPAddress ip = IPAddress.Parse(ipAddress);
@@ -19,41 +22,70 @@ namespace SeverProj
         }
         public void Start()
         {
+            Clients = new ConcurrentDictionary<int, ConnectedClient>();
+            int clientIndex = 0;
             m_tcpListener.Start();
 
-            Console.WriteLine("Listening...");
+            while(true)
+            {
+                Console.WriteLine("Listening...");
 
-            Socket socket = m_tcpListener.AcceptSocket();
-            Console.WriteLine("Connection Made");
-            ClientMethod(socket);
+                Socket socket = m_tcpListener.AcceptSocket();
+                ConnectedClient m_Clients = new ConnectedClient(socket);
+
+                int index = clientIndex;
+                clientIndex++;
+
+                Thread thread = new Thread(() => { ClientMethod(index); });
+                thread.Start();
+
+                Clients.TryAdd(index, m_Clients);
+
+                Console.WriteLine("Connection Made");
+                //ClientMethod(socket);
+
+            }
         }
         public void Stop()
         {
             m_tcpListener.Stop();
         }
 
-        private void ClientMethod(Socket socket)
+        private void ClientMethod(int index)
         {
             string receivedMessage;
 
-            NetworkStream stream = new NetworkStream(socket, true);
-            StreamReader reader = new StreamReader(stream, Encoding.UTF8);
-            StreamWriter writer = new StreamWriter(stream, Encoding.UTF8);
-
-            writer.WriteLine("You have connecter to the server - send 0 for valid options");
-            writer.Flush();
-
-            while ((receivedMessage = reader.ReadLine()) != null)
+            //Clients[index].stream = new NetworkStream(socket, true);
+            while ((receivedMessage = Clients[index].Read()) != null)
             {
-                writer.WriteLine(GetReturnMessage(receivedMessage));
-                writer.Flush();
-
-                if (receivedMessage == "bye")
-                    break;
+                Clients[index].Send(receivedMessage);
             }
-
-            socket.Close();
+            Clients[index].Close();
+            ConnectedClient c;
+            Clients.TryRemove(index, out c);
         }
+        //private void ClientMethod(Socket socket)
+        //{
+        //    string receivedMessage;
+
+        //    NetworkStream stream = new NetworkStream(socket, true);
+        //    StreamReader reader = new StreamReader(stream, Encoding.UTF8);
+        //    StreamWriter writer = new StreamWriter(stream, Encoding.UTF8);
+
+        //    writer.WriteLine("You have connecter to the server - send 0 for valid options");
+        //    writer.Flush();
+
+        //    while ((receivedMessage = reader.ReadLine()) != null)
+        //    {
+        //        writer.WriteLine(GetReturnMessage(receivedMessage));
+        //        writer.Flush();
+
+        //        if (receivedMessage == "bye")
+        //            break;
+        //    }
+
+        //    socket.Close();
+        //}
 
         private string GetReturnMessage(string code)
         {
@@ -70,5 +102,7 @@ namespace SeverProj
                 return "What an interesting thing to say";
             }
         }
+
+
     }
 }

@@ -6,3 +6,11 @@ C:\Users\s012349l\OneDrive - Staffordshire University\L5 Semester 1 Code\Concurr
 C:\Users\s012349l\OneDrive - Staffordshire University\L5 Semester 1 Code\Concurrent Network Applications\CNA Project\SeverProj\obj\Debug\SeverProj.csproj.CoreCompileInputs.cache
 C:\Users\s012349l\OneDrive - Staffordshire University\L5 Semester 1 Code\Concurrent Network Applications\CNA Project\SeverProj\obj\Debug\SeverProj.exe
 C:\Users\s012349l\OneDrive - Staffordshire University\L5 Semester 1 Code\Concurrent Network Applications\CNA Project\SeverProj\obj\Debug\SeverProj.pdb
+C:\Users\s012349l\Documents\Concurrent-Network-Applications\Concurrent Network Applications\CNA Project\SeverProj\bin\Debug\SeverProj.exe.config
+C:\Users\s012349l\Documents\Concurrent-Network-Applications\Concurrent Network Applications\CNA Project\SeverProj\bin\Debug\SeverProj.exe
+C:\Users\s012349l\Documents\Concurrent-Network-Applications\Concurrent Network Applications\CNA Project\SeverProj\bin\Debug\SeverProj.pdb
+C:\Users\s012349l\Documents\Concurrent-Network-Applications\Concurrent Network Applications\CNA Project\SeverProj\obj\Debug\SeverProj.csproj.AssemblyReference.cache
+C:\Users\s012349l\Documents\Concurrent-Network-Applications\Concurrent Network Applications\CNA Project\SeverProj\obj\Debug\SeverProj.csproj.SuggestedBindingRedirects.cache
+C:\Users\s012349l\Documents\Concurrent-Network-Applications\Concurrent Network Applications\CNA Project\SeverProj\obj\Debug\SeverProj.csproj.CoreCompileInputs.cache
+C:\Users\s012349l\Documents\Concurrent-Network-Applications\Concurrent Network Applications\CNA Project\SeverProj\obj\Debug\SeverProj.exe
+C:\Users\s012349l\Documents\Concurrent-Network-Applications\Concurrent Network Applications\CNA Project\SeverProj\obj\Debug\SeverProj.pdb

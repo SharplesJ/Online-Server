@@ -20,9 +20,20 @@ namespace CNA_Project
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        Client m_Client;
+        public MainWindow(Client client)
         {
             InitializeComponent();
+            m_Client = client;
+        }
+
+        public void UpdateChatBox(string message)
+        {
+            chatBox.Dispatcher.Invoke(() =>
+            {
+                chatBox.Text += message + Environment.NewLine;
+                chatBox.ScrollToEnd();
+            });
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

@@ -8,6 +8,7 @@ namespace CNA_Project
 {
     internal class Program
     {
+        [STAThread]
         static void Main()
         {
             Client client = new Client();
