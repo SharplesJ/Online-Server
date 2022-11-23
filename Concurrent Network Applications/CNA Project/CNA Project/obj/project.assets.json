@@ -1,11 +1,29 @@
 {
   "version": 3,
   "targets": {
-    "net6.0-windows7.0": {}
+    "net6.0-windows7.0": {
+      "Packets/1.0.0": {
+        "type": "project",
+        "compile": {
+          "bin/placeholder/Packets.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Packets.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "Packets/1.0.0": {
+      "type": "project",
+      "path": "../Packets/Packets.csproj",
+      "msbuildProject": "../Packets/Packets.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net6.0-windows7.0": []
+    "net6.0-windows7.0": [
+      "Packets >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\s012349l\\.nuget\\packages\\": {},
@@ -38,7 +56,11 @@
       "frameworks": {
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\s012349l\\Documents\\Concurrent-Network-Applications\\Concurrent Network Applications\\CNA Project\\Packets\\Packets.csproj": {
+              "projectPath": "C:\\Users\\s012349l\\Documents\\Concurrent-Network-Applications\\Concurrent Network Applications\\CNA Project\\Packets\\Packets.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

@@ -8,6 +8,7 @@ using System.Net;
 using System.IO;
 using System.Collections.Concurrent;
 using System.Threading;
+using Packets;
 
 namespace SeverProj
 {
@@ -53,39 +54,26 @@ namespace SeverProj
 
         private void ClientMethod(int index)
         {
-            string receivedMessage;
+            Packet receivedMessage;
 
             //Clients[index].stream = new NetworkStream(socket, true);
             while ((receivedMessage = Clients[index].Read()) != null)
             {
-                Clients[index].Send(receivedMessage);
+                if(receivedMessage != null)
+                {
+                    switch (receivedMessage.m_PacketType)
+                    {
+                        case Packets.PacketType.CHAT_MESSAGE:
+                            ChatMessagePacket chatPacket = (ChatMessagePacket)receivedMessage;
+                            Clients[index].Send(new ChatMessagePacket(GetReturnMessage(chatPacket.m_Message)));
+                            break;
+                    }
+                }
             }
             Clients[index].Close();
             ConnectedClient c;
             Clients.TryRemove(index, out c);
         }
-        //private void ClientMethod(Socket socket)
-        //{
-        //    string receivedMessage;
-
-        //    NetworkStream stream = new NetworkStream(socket, true);
-        //    StreamReader reader = new StreamReader(stream, Encoding.UTF8);
-        //    StreamWriter writer = new StreamWriter(stream, Encoding.UTF8);
-
-        //    writer.WriteLine("You have connecter to the server - send 0 for valid options");
-        //    writer.Flush();
-
-        //    while ((receivedMessage = reader.ReadLine()) != null)
-        //    {
-        //        writer.WriteLine(GetReturnMessage(receivedMessage));
-        //        writer.Flush();
-
-        //        if (receivedMessage == "bye")
-        //            break;
-        //    }
-
-        //    socket.Close();
-        //}
 
         private string GetReturnMessage(string code)
         {

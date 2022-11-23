@@ -5,7 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Net.Sockets;
-
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Runtime.Serialization;
+using Packets;
 
 namespace SeverProj
 {
@@ -13,10 +15,14 @@ namespace SeverProj
     {
         Socket socket;
         NetworkStream stream;
-        StreamReader reader;
-        StreamWriter writer;
+        BinaryReader reader;
+        BinaryWriter writer;
+        BinaryFormatter formatter;
+
         object readLock;
         object writeLock;
+
+        int numberOfBytes;
 
 
 
@@ -24,9 +30,11 @@ namespace SeverProj
         {
             writeLock = new object();
             readLock = new object();
+
             stream = new NetworkStream(socket, true);
-            writer = new StreamWriter(stream, Encoding.UTF8);
-            reader = new StreamReader(stream, Encoding.UTF8);
+            writer = new BinaryWriter(stream, Encoding.UTF8);
+            reader = new BinaryReader(stream, Encoding.UTF8);
+            formatter = new BinaryFormatter();
         }
 
 
@@ -38,18 +46,26 @@ namespace SeverProj
             writer.Close();
             socket.Close();
         }
-        public string Read()
+        public Packet Read()
         {
-            lock (readLock)
+            if((numberOfBytes = reader.ReadInt32()) != -1)
             {
-                return reader.ReadLine();
+                byte[] buffer = reader.ReadBytes(numberOfBytes);
+                MemoryStream ms = new MemoryStream(buffer);
+                return formatter.Deserialize(ms) as Packet;
             }
+            else
+                return null;
         }
-        public void Send(string message)
+        public void Send(Packet packet)
         {
             lock (writeLock)
             {
-                writer.Write(message);
+                MemoryStream ms = new MemoryStream();
+                formatter.Serialize(ms, packet);
+                byte[] buffer = ms.GetBuffer();
+                writer.Write(buffer.Length);
+                writer.Write(buffer);
                 writer.Flush();
             }
         }
