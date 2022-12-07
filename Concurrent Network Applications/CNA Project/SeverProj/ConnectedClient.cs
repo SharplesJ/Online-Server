@@ -18,6 +18,8 @@ namespace SeverProj
         BinaryReader reader;
         BinaryWriter writer;
         BinaryFormatter formatter;
+        public string name;
+
 
         object readLock;
         object writeLock;
@@ -58,6 +60,19 @@ namespace SeverProj
                 return null;
         }
         public void Send(Packet packet)
+        {
+            lock (writeLock)
+            {
+                MemoryStream ms = new MemoryStream();
+                formatter.Serialize(ms, packet);
+                byte[] buffer = ms.GetBuffer();
+                writer.Write(buffer.Length);
+                writer.Write(buffer);
+                writer.Flush();
+            }
+        }
+
+        public void Send(Packet packet, int index)
         {
             lock (writeLock)
             {

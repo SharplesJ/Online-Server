@@ -16,6 +16,9 @@ namespace SeverProj
     {
         private TcpListener m_tcpListener;
         ConcurrentDictionary<int, ConnectedClient> Clients;
+        List<string> clientlist = new List<string>();
+        int clientIndex = 0;
+
         public Server(string ipAddress, int port)
         {
             IPAddress ip = IPAddress.Parse(ipAddress);
@@ -24,7 +27,6 @@ namespace SeverProj
         public void Start()
         {
             Clients = new ConcurrentDictionary<int, ConnectedClient>();
-            int clientIndex = 0;
             m_tcpListener.Start();
 
             while(true)
@@ -63,9 +65,26 @@ namespace SeverProj
                 {
                     switch (receivedMessage.m_PacketType)
                     {
+                        case Packets.PacketType.CLIENT_NAME:
+                            ClientNamePacket clientNamePacket = (ClientNamePacket)receivedMessage;
+                            for (int i = 0; i < clientIndex; i++)
+                            {
+                                if (i != index)
+                                    Clients[i].Send(receivedMessage);
+                            }
+                            break;
                         case Packets.PacketType.CHAT_MESSAGE:
-                            ChatMessagePacket chatPacket = (ChatMessagePacket)receivedMessage;
-                            Clients[index].Send(new ChatMessagePacket(GetReturnMessage(chatPacket.m_Message)));
+                            //ChatMessagePacket chatPacket = (ChatMessagePacket)receivedMessage;
+                            for (int i = 0; i < clientIndex; i++)
+                            {
+                                if (i != index)
+                                    Clients[i].Send(receivedMessage);
+                            }
+                            break;
+                        case Packets.PacketType.PRIVATE_MESSAGE:
+                            PrivateNamePacket privateNamePacket = (PrivateNamePacket)receivedMessage;
+
+                            Clients[Int32.Parse(privateNamePacket.m_target)].Send(receivedMessage);
                             break;
                     }
                 }

@@ -14,3 +14,14 @@ C:\Users\s012349l\Documents\Concurrent-Network-Applications\Concurrent Network A
 C:\Users\s012349l\Documents\Concurrent-Network-Applications\Concurrent Network Applications\CNA Project\SeverProj\obj\Debug\SeverProj.csproj.CoreCompileInputs.cache
 C:\Users\s012349l\Documents\Concurrent-Network-Applications\Concurrent Network Applications\CNA Project\SeverProj\obj\Debug\SeverProj.exe
 C:\Users\s012349l\Documents\Concurrent-Network-Applications\Concurrent Network Applications\CNA Project\SeverProj\obj\Debug\SeverProj.pdb
+C:\Users\s012349l\Documents\GitHub\Concurrent-Network-Applications\Concurrent Network Applications\CNA Project\SeverProj\bin\Debug\SeverProj.exe.config
+C:\Users\s012349l\Documents\GitHub\Concurrent-Network-Applications\Concurrent Network Applications\CNA Project\SeverProj\bin\Debug\SeverProj.exe
+C:\Users\s012349l\Documents\GitHub\Concurrent-Network-Applications\Concurrent Network Applications\CNA Project\SeverProj\bin\Debug\SeverProj.pdb
+C:\Users\s012349l\Documents\GitHub\Concurrent-Network-Applications\Concurrent Network Applications\CNA Project\SeverProj\bin\Debug\Packets.dll
+C:\Users\s012349l\Documents\GitHub\Concurrent-Network-Applications\Concurrent Network Applications\CNA Project\SeverProj\bin\Debug\Packets.pdb
+C:\Users\s012349l\Documents\GitHub\Concurrent-Network-Applications\Concurrent Network Applications\CNA Project\SeverProj\obj\Debug\SeverProj.csproj.AssemblyReference.cache
+C:\Users\s012349l\Documents\GitHub\Concurrent-Network-Applications\Concurrent Network Applications\CNA Project\SeverProj\obj\Debug\SeverProj.csproj.SuggestedBindingRedirects.cache
+C:\Users\s012349l\Documents\GitHub\Concurrent-Network-Applications\Concurrent Network Applications\CNA Project\SeverProj\obj\Debug\SeverProj.csproj.CoreCompileInputs.cache
+C:\Users\s012349l\Documents\GitHub\Concurrent-Network-Applications\Concurrent Network Applications\CNA Project\SeverProj\obj\Debug\SeverProj.csproj.CopyComplete
+C:\Users\s012349l\Documents\GitHub\Concurrent-Network-Applications\Concurrent Network Applications\CNA Project\SeverProj\obj\Debug\SeverProj.exe
+C:\Users\s012349l\Documents\GitHub\Concurrent-Network-Applications\Concurrent Network Applications\CNA Project\SeverProj\obj\Debug\SeverProj.pdb

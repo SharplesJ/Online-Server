@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CNA_Project"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="470" Width="815">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -35,12 +35,14 @@
         <TextBlock HorizontalAlignment="Left" Margin="26,396,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Language="en-gb" Text="Message"/></TextBlock>
         <TextBox x:Name="messageText" HorizontalAlignment="Left" Height="28" Margin="78,396,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="533" TextChanged="TextBox_TextChanged_1"/>
         <Button Content="Send" HorizontalAlignment="Left" Margin="636,396,0,0" VerticalAlignment="Top" Height="28" Width="154" Click="Button_Click"/>
-        <TextBox HorizontalAlignment="Left" Height="196" Margin="636,176,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="154"/>
-        <TextBlock HorizontalAlignment="Left" Height="24" Margin="636,152,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="154"><Run Language="en-gb" Text="Messages From:"/></TextBlock>
+        <TextBox x:Name="targetName" HorizontalAlignment="Left" Height="24" Margin="636,158,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="154"/>
+        <TextBlock HorizontalAlignment="Left" Height="19" Margin="636,139,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="154"><Run Language="en-gb" Text="Message Index:"/></TextBlock>
         <CheckBox Content="Enable Server" HorizontalAlignment="Left" Margin="636,97,0,0" VerticalAlignment="Top" Height="16" Width="147" Checked="CheckBox_Checked"/>
-        <CheckBox Content="Use Encryption" HorizontalAlignment="Left" Height="21" Margin="636,118,0,0" VerticalAlignment="Top" Width="130"/>
+        <CheckBox x:Name="private" Content="Private Message" HorizontalAlignment="Left" Height="20" Margin="636,189,0,0" VerticalAlignment="Top" Width="130" Checked="CheckBox_Checked"/>
         <TextBlock HorizontalAlignment="Left" Margin="520,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="91"><Run Language="en-gb" Text="Local Name"/></TextBlock>
         <TextBox x:Name="localName" HorizontalAlignment="Left" Height="18" Margin="616,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="167"/>
+        <TextBlock HorizontalAlignment="Left" Height="20" Margin="636,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="154"><Run Language="en-gb" Text="Connected Clients:"/></TextBlock>
+        <TextBox x:Name="connectedClients" HorizontalAlignment="Left" Height="130" Margin="636,242,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="154"/>
 
     </Grid>
 </Window>

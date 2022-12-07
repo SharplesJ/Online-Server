@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Packets;
 
 namespace CNA_Project
 {
@@ -20,7 +21,9 @@ namespace CNA_Project
     /// </summary>
     public partial class MainWindow : Window
     {
+        string ownName = "";
         Client m_Client;
+
         public MainWindow(Client client)
         {
             InitializeComponent();
@@ -31,32 +34,64 @@ namespace CNA_Project
         {
             chatBox.Dispatcher.Invoke(() =>
             {
-                chatBox.Text += message + Environment.NewLine;
+                chatBox.Text += message;
                 chatBox.ScrollToEnd();
             });
         }
 
+        //public void UpdateClientBox(string message)
+        //{
+        //    connectedClients.Dispatcher.Invoke(() =>
+        //    {
+                
+        //        connectedClients.Text += message;
+        //        connectedClients.ScrollToEnd();
+        //    });
+        //}
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            string message = messageText.Text;
+            string name = localName.Text;
+            string target = targetName.Text;
+
             if (messageText.Text == "")
             {
                 MessageBox.Show("No message in text box!", "Warning");
             }
             else
             {
-                string message = messageText.Text;
-                messageText.Text = "";
                 if (localName.Text == "")
                 {
                     MessageBox.Show("Please enter a name in Local Name Textbox!", "Warning");
                     messageText.Text = message;
                 }
+                else if (@private.IsChecked == true)
+                {
+
+                    m_Client.SendMessage(new PrivateNamePacket(message, target, name));
+
+                    messageText.Text = "";
+                    chatBox.Text += "You Whisper '" + message + "' to client " + target + "\n";
+                }
                 else
                 {
-                    string name = localName.Text;
+                    m_Client.SendMessage(new ClientNamePacket(name));
+                    m_Client.SendMessage(new ChatMessagePacket(message));
+
+                    messageText.Text = "";
                     chatBox.Text += name + " says: " + message + "\n";
                 }
             }
+
+            if(ownName != name)
+            {
+                if (ownName != "")
+                    connectedClients.Text += ownName + " left- \n";
+                connectedClients.Text += name + " joined+ \n";
+                ownName = name;
+            }
+
         }
 
         private void TextBox_TextChanged_1(object sender, TextChangedEventArgs e)

@@ -32,11 +32,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\s012349l\\Documents\\Concurrent-Network-Applications\\Concurrent Network Applications\\CNA Project\\CNA Project\\ClientProj.csproj",
+      "projectUniqueName": "C:\\Users\\s012349l\\Documents\\GitHub\\Concurrent-Network-Applications\\Concurrent Network Applications\\CNA Project\\CNA Project\\ClientProj.csproj",
       "projectName": "ClientProj",
-      "projectPath": "C:\\Users\\s012349l\\Documents\\Concurrent-Network-Applications\\Concurrent Network Applications\\CNA Project\\CNA Project\\ClientProj.csproj",
+      "projectPath": "C:\\Users\\s012349l\\Documents\\GitHub\\Concurrent-Network-Applications\\Concurrent Network Applications\\CNA Project\\CNA Project\\ClientProj.csproj",
       "packagesPath": "C:\\Users\\s012349l\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\s012349l\\Documents\\Concurrent-Network-Applications\\Concurrent Network Applications\\CNA Project\\CNA Project\\obj\\",
+      "outputPath": "C:\\Users\\s012349l\\Documents\\GitHub\\Concurrent-Network-Applications\\Concurrent Network Applications\\CNA Project\\CNA Project\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -57,8 +57,8 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "projectReferences": {
-            "C:\\Users\\s012349l\\Documents\\Concurrent-Network-Applications\\Concurrent Network Applications\\CNA Project\\Packets\\Packets.csproj": {
-              "projectPath": "C:\\Users\\s012349l\\Documents\\Concurrent-Network-Applications\\Concurrent Network Applications\\CNA Project\\Packets\\Packets.csproj"
+            "C:\\Users\\s012349l\\Documents\\GitHub\\Concurrent-Network-Applications\\Concurrent Network Applications\\CNA Project\\Packets\\Packets.csproj": {
+              "projectPath": "C:\\Users\\s012349l\\Documents\\GitHub\\Concurrent-Network-Applications\\Concurrent Network Applications\\CNA Project\\Packets\\Packets.csproj"
             }
           }
         }

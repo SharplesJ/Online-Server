@@ -4,10 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Net.Sockets;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Runtime.Serialization;
 using System.Net;
 using System.IO;
 using System.Collections.Concurrent;
 using System.Threading;
+using Packets;
 
 namespace CNA_Project
 {
@@ -15,13 +18,15 @@ namespace CNA_Project
     {
         TcpClient tcpClient;
         NetworkStream stream;
-        StreamWriter writer;
-        StreamReader reader;
+        BinaryReader reader;
+        BinaryWriter writer;
         MainWindow form;
+        BinaryFormatter formatter;
 
         public Client()
         {
             tcpClient = new TcpClient();
+            formatter = new BinaryFormatter();
         }
         public bool Connect(string ipAdress, int port)
         {
@@ -30,8 +35,8 @@ namespace CNA_Project
             {
                 tcpClient.Connect(ip, port);
                 stream = tcpClient.GetStream();
-                writer = new StreamWriter(stream);
-                reader = new StreamReader(stream);
+                writer = new BinaryWriter(stream);
+                reader = new BinaryReader(stream);
                 return true;
             }
             catch (Exception e)
@@ -43,34 +48,56 @@ namespace CNA_Project
 
         public void Run()
         {
-            string userInput;
             form = new MainWindow(this);
+            Thread thread = new Thread(() => { ProcessServerResponce(); });
+            thread.Start();
+
 
             form.ShowDialog();
-
-            while ((userInput = Console.ReadLine()) != null)
-            {
-                Thread thread = new Thread(() => { ProcessServerResponce(userInput); });
-                thread.Start();
-            }
 
             tcpClient.Close();
         }
 
-        private void ProcessServerResponce(string message)
+        private void ProcessServerResponce()
         {
-            //Console.WriteLine("Server says: " + reader.ReadLine());
-            //Console.WriteLine();
-            while(tcpClient.Connected)
+            int numberOfBytes;
+            while ((numberOfBytes = reader.ReadInt32()) != -1)
             {
-                form.UpdateChatBox(message);
+                byte[] buffer = reader.ReadBytes(numberOfBytes);
+                MemoryStream ms = new MemoryStream(buffer);
+                Packet receivedMessage = formatter.Deserialize(ms) as Packet;
+                if (receivedMessage != null)
+                {
+                    switch (receivedMessage.m_PacketType)
+                    {
+                        case Packets.PacketType.CLIENT_NAME:
+                            ClientNamePacket clientNamePacket = (ClientNamePacket)receivedMessage;
+                            
+                            form.UpdateChatBox(clientNamePacket.m_LocalName + " says: ");
+                            break;
+                        case Packets.PacketType.CHAT_MESSAGE:
+                            ChatMessagePacket chatPacket = (ChatMessagePacket)receivedMessage;
+
+                            form.UpdateChatBox(chatPacket.m_Message + "\n");
+                            break;
+                        case Packets.PacketType.PRIVATE_MESSAGE:
+                            PrivateNamePacket privateNamePacket = (PrivateNamePacket)receivedMessage;
+
+                            form.UpdateChatBox(privateNamePacket.m_LocalName + " says: '" + privateNamePacket.m_Message + "' to you" + "\n");
+                            break;
+                    }
+                }
             }
         }
 
-        public void SendMessage(string message)
+        public void SendMessage(Packet packet)
         {
-            Console.WriteLine("Server says: " + message);
-            Console.WriteLine();
+            MemoryStream ms = new MemoryStream();
+            formatter.Serialize(ms, packet);
+            byte[] buffer = ms.GetBuffer();
+            writer.Write(buffer.Length);
+            writer.Write(buffer);
+            writer.Flush();
         }
     }
 }
