@@ -54,6 +54,7 @@ namespace CNA_Project
             string message = messageText.Text;
             string name = localName.Text;
             string target = targetName.Text;
+            string result = "drew";
 
             if (messageText.Text == "")
             {
@@ -74,6 +75,73 @@ namespace CNA_Project
                     messageText.Text = "";
                     chatBox.Text += "You Whisper '" + message + "' to client " + target + "\n";
                 }
+                else if (message.ToLower() == "rock" || message.ToLower() == "scissors" || message.ToLower() == "paper")
+                {
+                    chatBox.Text += "You Play " + message + "\n";
+                    chatBox.Text += "Server Plays: ";
+
+                    Random random = new Random();
+                    int num = random.Next(0, 3);
+                    if (num == 0)
+                    {
+                        chatBox.Text += ("Rock!\n");
+                        if (message.ToLower() == "rock")
+                        {
+                            chatBox.Text += ("Darn, a draw! \n");
+                            result = "drew";
+                        }
+                        else if (message.ToLower() == "paper")
+                        {
+                            chatBox.Text += ("Dang, you beat me! \n");
+                            result = "won";
+                        }
+                        else if (message.ToLower() == "scissors")
+                        {
+                            chatBox.Text += ("Whey! I won by sheer skill!!! \n");
+                            result = "lost";
+                        }
+                    }
+                    else if (num == 1)
+                    {
+                        chatBox.Text += ("Paper!\n");
+                        if (message.ToLower() == "paper")
+                        {
+                            chatBox.Text += ("Darn, a draw! \n");
+                            result = "drew";
+                        }
+                        else if (message.ToLower() == "scissors")
+                        {
+                            chatBox.Text += ("Dang, you beat me! \n");
+                            result = "won";
+                        }
+                        else if (message.ToLower() == "rock")
+                        {
+                            chatBox.Text += ("Whey! I won by sheer skill!!! \n");
+                            result = "lost";
+                        }
+                    }
+                    else if (num == 2)
+                    {
+                        chatBox.Text += ("Scissors!\n");
+                        if (message.ToLower() == "scissors")
+                        {
+                            chatBox.Text += ("Darn, a draw! \n");
+                            result = "drew";
+                        }
+                        else if (message.ToLower() == "rock")
+                        {
+                            chatBox.Text += ("Dang, you beat me! \n");
+                            result = "won";
+                        }
+                        else if (message.ToLower() == "paper")
+                        {
+                            chatBox.Text += ("Whey! I won by sheer skill!!! \n");
+                            result = "lost";
+                        }
+                    }
+                    m_Client.SendMessage(new ChatMessagePacket(name + " just " + result + " at Rock, Paper, Scissors"));
+                }
+
                 else
                 {
                     m_Client.SendMessage(new ClientNamePacket(name));
